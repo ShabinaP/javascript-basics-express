@@ -1,9 +1,10 @@
 const request = require('supertest');
+
 const app = require('../src/app');
 
 describe('/booleans', () => {
   describe('POST /negate', () => {
-    xit('returns false when passed true', done => {
+    it('returns false when passed true', done => {
       request(app)
         .post('/booleans/negate')
         .send({ value: true })
@@ -14,7 +15,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns true when passed false', done => {
+    it('returns true when passed false', done => {
       request(app)
         .post('/booleans/negate')
         .send({ value: false })
@@ -27,7 +28,7 @@ describe('/booleans', () => {
   });
 
   describe('POST /truthiness', () => {
-    xit('returns false when passed an empty string', done => {
+    it('returns false when passed an empty string', done => {
       request(app)
         .post('/booleans/truthiness')
         .send({ value: '' })
@@ -38,7 +39,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns false when passed 0', done => {
+    it('returns false when passed 0', done => {
       request(app)
         .post('/booleans/truthiness')
         .send({ value: 0 })
@@ -49,7 +50,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns false when passed null', done => {
+    it('returns false when passed null', done => {
       request(app)
         .post('/booleans/truthiness')
         .send({ value: null })
@@ -84,7 +85,7 @@ describe('/booleans', () => {
   });
 
   describe('GET /is-odd/{number}', () => {
-    xit('returns true when passed an odd number', done => {
+    it('returns true when passed an odd number', done => {
       request(app)
         .get('/booleans/is-odd/7')
         .then(res => {
@@ -94,7 +95,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns false when passed an even number', done => {
+    it('returns false when passed an even number', done => {
       request(app)
         .get('/booleans/is-odd/84')
         .then(res => {

@@ -4,7 +4,7 @@ const app = require('../src/app');
 
 describe('/booleans', () => {
   describe('POST /negate', () => {
-    it('returns false when passed true', done => {
+    xit('returns false when passed true', done => {
       request(app)
         .post('/booleans/negate')
         .send({ value: true })
@@ -15,7 +15,7 @@ describe('/booleans', () => {
         });
     });
 
-    it('returns true when passed false', done => {
+    xit('returns true when passed false', done => {
       request(app)
         .post('/booleans/negate')
         .send({ value: false })
@@ -28,7 +28,7 @@ describe('/booleans', () => {
   });
 
   describe('POST /truthiness', () => {
-    it('returns false when passed an empty string', done => {
+    xit('returns false when passed an empty string', done => {
       request(app)
         .post('/booleans/truthiness')
         .send({ value: '' })
@@ -39,7 +39,7 @@ describe('/booleans', () => {
         });
     });
 
-    it('returns false when passed 0', done => {
+    xit('returns false when passed 0', done => {
       request(app)
         .post('/booleans/truthiness')
         .send({ value: 0 })
@@ -50,7 +50,7 @@ describe('/booleans', () => {
         });
     });
 
-    it('returns false when passed null', done => {
+   xit('returns false when passed null', done => {
       request(app)
         .post('/booleans/truthiness')
         .send({ value: null })
@@ -117,7 +117,7 @@ describe('/booleans', () => {
   });
 
   describe('GET /{string}/starts-with/{character}', () => {
-    xit('returns true when the string starts with the given character', done => {
+    it('returns true when the string starts with the given character', done => {
       request(app)
         .get('/booleans/cat/starts-with/c')
         .then(res => {
@@ -127,7 +127,7 @@ describe('/booleans', () => {
         });
     });
 
-    xit('returns false when the string does not start with the given character', done => {
+    it('returns false when the string does not start with the given character', done => {
       request(app)
         .get('/booleans/cat/starts-with/d')
         .then(res => {
